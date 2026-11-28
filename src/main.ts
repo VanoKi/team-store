@@ -6,4 +6,11 @@ if (!app) {
   throw new Error("#app not found");
 }
 
-app.textContent = "Team Store";
+app.innerHTML = `
+  <main>
+    <h1>Каталог товаров</h1>
+    <section id="products" aria-label="Список товаров">
+      <p>Загружаем товары…</p>
+    </section>
+  </main>
+`;
