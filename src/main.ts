@@ -1,4 +1,5 @@
 import "./style.css";
+import { getProducts } from "./api/productsApi";
 
 const app = document.querySelector<HTMLDivElement>("#app");
 if (!app) {
