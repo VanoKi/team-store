@@ -6,17 +6,16 @@ if (!app) {
   throw new Error("#app not found");
 }
 
-app.innerHTML = `
-  <main>
-    <h1>Каталог товаров</h1>
-    <section id="products" aria-label="Список товаров"></section>
-  </main>
-`;
+const main = document.createElement("main");
+const heading = document.createElement("h1");
+heading.textContent = "Каталог товаров";
 
-const productsContainer = document.querySelector<HTMLElement>("#products");
-if (!productsContainer) {
-  throw new Error("Контейнер товаров #products не найден");
-}
+const productsContainer = document.createElement("section");
+productsContainer.id = "products";
+productsContainer.setAttribute("aria-label", "Список товаров");
+
+main.append(heading, productsContainer);
+app.replaceChildren(main);
 
 async function loadProducts(): Promise<void> {
   productsContainer.textContent = "Загружаем товары…";
