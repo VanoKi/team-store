@@ -23,6 +23,12 @@ const loadProducts = async (container: HTMLElement): Promise<void> => {
 
   try {
     const products = await getProducts();
+
+    if (products.length === 0) {
+      container.textContent = "Товары не найдены.";
+      return;
+    }
+
     const productList = document.createElement("ul");
 
     products.forEach((product) => {
